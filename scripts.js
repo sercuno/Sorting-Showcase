@@ -26,13 +26,22 @@ function selectionSort(arr) {
 
 document.getElementById("selectionSort").addEventListener('click', function(event) {
     event.preventDefault();
-    
+
     document.body.innerHTML = `
     <h1>Selection Sort</h1>
+    <p>
+    Selection Sort is a comparison-based sorting algorithm.
+    It works by repeatedly selecting the smallest (or largest)
+    element from the unsorted part of an array and swapping it with the first unsorted element. 
+    This process continues until the entire array is sorted.
+    </p>
+    <p><strong>Time Complexity:</strong> O(n²)</strong></p>
+    <p><strong>Auxiliary Space:</strong> O(1)</strong></p>
     <form id="selectionSortID">
         <label for="txt-input">Text (space in-between required):</label>
         <input type="text" id="txt-input" placeholder=".e.g. 59 94 120 21"><br><br>
         <button type="submit">Send-inn</button>
+        <button onclick="location.reload()">Return</button>
     </form>
     <p id="resultat"></p>
     <p id="time"></p>`;
@@ -44,18 +53,14 @@ document.getElementById("selectionSort").addEventListener('click', function(even
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-
         paragraphRestultat.innerHTML = "";
         paragraphTime.innerHTML = "";
-
         const value = input.value.trim();
-
         if (value !== "") {
             let txtArr = value.split(" ");
             const start = performance.now();
             let result = selectionSort(txtArr);
             const end = performance.now();
-
             paragraphRestultat.innerHTML = `<strong>Sorted Text:</strong> ${result.join(" ")}`;
             paragraphTime.innerHTML = `<strong>Time Taken:</strong> ${(end - start).toFixed(2)} ms`;
         } else {
@@ -64,3 +69,4 @@ document.getElementById("selectionSort").addEventListener('click', function(even
         }
     });
 });
+// Bubble Sort
