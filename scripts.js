@@ -43,7 +43,7 @@ function bubbleSort(arr) {
             break;
         }
     }
-    return arr; // <-- Important!
+    return arr; 
 }
 
 // selection sort page
