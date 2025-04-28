@@ -32,19 +32,28 @@ function bubbleSort(arr) {
     for (let i = 0; i < n - 1; i++) {
         swapped = false;
         for (let j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                let temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = true;
+            let a = arr[j];
+            let b = arr[j + 1];
+
+            if (!isNaN(a) && !isNaN(b)) {
+                if (Number(a) < Number(b)) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    swapped = true;
+                }
+            } else {
+                if (String(a).localeCompare(String(b)) < 0) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    swapped = true;
+                }
             }
         }
         if (!swapped) {
             break;
         }
     }
-    return arr; 
+    return arr;
 }
+
 
 // selection sort page
 document.getElementById("selectionSort").addEventListener('click', function(event) {
